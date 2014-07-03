@@ -1,15 +1,13 @@
-package streamlogin;
-
 import java.util.concurrent.TimeUnit;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 
-
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.jetty.html.Page;
-//import org.apache.commons.io.FileUtiles;
+//import org.apache.commons.io.FileUtiles
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,18 +18,69 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 
 
-public class main01 {
+
+public class ToChecktheShare {
+
+	private static Object element1;
 
 
-	public static void main(String args[]){
-		
+	public static void main(String args[]) throws Throwable{
 		// Automated method Tab
 		
 		WebDriver driver = new FirefoxDriver();
+		Dimension d=new Dimension(1200,2000);
+		driver.manage().window().setSize(d);
 		
 		System.out.println("/***TstCode***/");
 		
 		driver.get("http://www.google.com");
+		
+		
+		
+		login(driver);// enter into the login page of streambox 
+		
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		
+		System.out.println("Before Share Page");
+		
+		
+		
+		try{
+		
+		//do{
+			Thread.sleep(1000L);
+		WebElement element1=driver.findElement(By.xpath("//a[@class='ctn_pf_user_share file_page_share lsc_player_share']"));
+		System.out.println(" Share action on the way");
+		Thread.sleep(7000L);;
+		//driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		//}while(element1==null);
+		
+		
+		//driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
+		element1.click();
+		
+		System.out.println("All through the Share action");
+		
+		}catch(Exception e){
+			
+			System.out.println("error");
+		}
+		
+		Thread.sleep(1000L);
+		
+		driver.findElement(By.id("cmd_share_email")).click();
+		System.out.println("click the email share");
+		
+		driver.findElement(By.className("sb_icon_facebook")).click();;
+		System.out.println("clicked facebook share");
+		
+		
+}//end of main
+	
+	
+	public static void login(WebDriver driver){
+		
+		
 		//driver.quit();
 		
 		//Fill the search word into textbox named "q"
@@ -69,14 +118,6 @@ public class main01 {
 		//element3.click();
 		
 		//driver.navigate().back();
-		
-		//driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		
-		
-	//WebElement element4=driver.findElement(By.partialLinkText("Sign Up Now"));
-		
-		//WebElement element4=driver.findElement(By.linkText("Live Login"));
-		//element4.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		////////////////////////////////////////////////////////////
@@ -112,7 +153,7 @@ public class main01 {
 		
 		driver.findElement(By.xpath("//button[@id='btn_sb_login']")).click();
 		
-	
+	/*
 	
 				//driver.get("http://live.streambox.com/ls/u/hiro");
 	driver.findElement(By.className("btn_lsc_edit")).click();
@@ -126,16 +167,8 @@ public class main01 {
 	System.out.println("Left thing is to push the submit");
 	
 	element8.click();
-	
-	//driver.findElement(By.xpath("//div[@class=modal-footer]/button[@class='btn btn-primary']")).click();
-	
-	
-	
-	
-	
-		System.out.println("Finish");
 		
-		//driver.quit();
+	*/
 		
 	}
 	
