@@ -26,8 +26,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 
 
-public class test {
+public class test extends PageObject {
 
+	
 	private static Object element1;
 
 
@@ -42,6 +43,20 @@ public class test {
 		
 		System.out.println("/***TstCode***/");
 		
+		
+		//PageObject [] baseobj = new PageObject[2];
+
+		PageObject baseobj = new PageObject();
+
+		
+		//baseobj.setPageObject(driver);
+	baseobj.SetWebSite("http://d2.streambox.com/ls/SLSLogin.php");	
+	baseobj.Login();
+	baseobj.run();	
+	
+	//baseobj[1].SetWebSite("http://www.yahoo.com");
+		
+	
 		//driver.get("http://www.google.com");
 		//driver.get("http://livedev2.streambox.com/ls/slsmap.php");
 		//driver.get("http://live.streambox.com/ls/SLSLogin.php");
@@ -109,6 +124,8 @@ public class test {
 }//end of main
 	
 	
+
+
 	private static void Retrieve_data(WebDriver driver) {
 		// TODO Auto-generated method stub
 		
@@ -425,7 +442,7 @@ public class test {
 		//element.submit();
 		
 		//This statement is the function to wait for 10 seconds at maximum 
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
 		//
 		//WebElement element2= driver.findElement(By.partialLinkText("Streambox Inc"));
