@@ -29,6 +29,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 public class test extends PageObject {
 
 	
+	
 	private static Object element1;
 
 
@@ -45,17 +46,22 @@ public class test extends PageObject {
 		
 		
 		//PageObject [] baseobj = new PageObject[2];
-
+/*
 		PageObject baseobj = new PageObject();
 
 		
 		//baseobj.setPageObject(driver);
 	baseobj.SetWebSite("http://d2.streambox.com/ls/SLSLogin.php");	
-	baseobj.Login();
+	baseobj.Login("admin", "demo");
 	baseobj.run();	
-	
+	*/
 	//baseobj[1].SetWebSite("http://www.yahoo.com");
 		
+	
+	Contributer contri= new Contributer();
+	
+	contri.contributerun();
+	
 	
 		//driver.get("http://www.google.com");
 		//driver.get("http://livedev2.streambox.com/ls/slsmap.php");
