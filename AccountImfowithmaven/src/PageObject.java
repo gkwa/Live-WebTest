@@ -26,10 +26,20 @@ import org.openqa.selenium.remote.server.handler.FindElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 
+import java.io.BufferedReader;
+import java.net.URL;
+import java.net.MalformedURLException;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
 
 class PageObject {
 
+
 	protected WebDriver driver;
+	protected static String name;
 	
 	public PageObject(){//constructor
 		driver = null;
@@ -62,11 +72,22 @@ class PageObject {
 	}
 	
 	
-	public void Login(){
+	public String getCurrentURL(){
+		
+		String url=this.driver.getCurrentUrl();
+		
+		return url;
+	}
+	
+	
+	public void Login(String name, String pass){
+		this.name=name;
+		
 		WebElement element5=driver.findElement(By.className("entryfield"));
 		
 		
-		element5.sendKeys("admin");//LiveServer2
+		element5.sendKeys(name);//LiveServer2
+		//element5.sendKeys("admin");//LiveServer2
 		
 		System.out.println("on the way1");
 		
@@ -75,8 +96,8 @@ class PageObject {
 		
 		
 		WebElement element6=driver.findElement(By.xpath("//div[@class='flex']/input[@id='password']"));
-		element6.sendKeys("demo");
-		
+		//element6.sendKeys("demo");
+		element6.sendKeys(pass);
 			
 				System.out.println("on the way: " + driver.findElement(By.id("password")));
 		
@@ -87,7 +108,7 @@ class PageObject {
 	
 	public void run() throws InterruptedException{
 		
-		To_Check_theAccount(driver);
+		To_Check_theAccount(driver, name);
 		
 		To_ChangeConfirmAccount(driver);
 		
@@ -172,7 +193,7 @@ class PageObject {
 	}
 
 
-	private static void Check_Application_form(WebDriver driver) {
+	 private static void Check_Application_form(WebDriver driver) {
 		// TODO Auto-generated method stub
 		
 		System.out.println("In the Check_Application_form()...");
@@ -193,7 +214,7 @@ class PageObject {
 		WebElement element0 = driver.findElement(By.xpath("//fieldset/div[@class='span7']/p[@class='controls']/input[@id='uname1']"));
 		//WebElement element0 = driver.findElement(By.xpath("//p[@class='controls']/input[@id='uname1']"));
 		String LoginName=element0.getAttribute("value");
-		String logpattern="admin";
+		String logpattern= name;
 		System.out.println("//*****Checking Login Name******// ");
 		CheckString(LoginName,logpattern);
 		
@@ -340,7 +361,7 @@ class PageObject {
 	//end of Check String
 
 
-	private static void To_Check_theAccount(WebDriver driver) throws InterruptedException {
+	private static void To_Check_theAccount(WebDriver driver, String Loginname) throws InterruptedException {
 		// TODO Auto-generated method stub
 		Thread.sleep(10);
 		System.out.println("Inside of func: To_Check...");
@@ -361,7 +382,47 @@ class PageObject {
 		//driver.findElement(By.xpath("//a[@class='cmd_set_advanced']")).click();
 		//************************open the right header***********************************************//
 			
-			driver.findElement(By.xpath("//div[@id='ctn_session_action']/div[@class='btn-group open']/ul[@class='dropdown-menu pull-right']/li//a[@href='/ls/slsusers.php?user=5']")).click();
+			//WebElement elem = driver.findElement(By.xpath("//div[@id='ctn_session_action']/div[@class='btn-group open']/ul[@class='dropdown-menu pull-right']/li//a[@href='/ls/slsusers.php?user=5']"));
+			
+			
+			//*************This is homework7/15*******************//
+			
+			
+			String url= driver.getCurrentUrl();
+			try{
+			URL firefox = new URL(url);
+			BufferedReader in = new BufferedReader(new InputStreamReader(firefox.openStream()));
+			String inputLine;
+			int size=0;
+			int K =4;
+			String reader[] = null;
+			reader = new String[100];
+			
+			while((inputLine = in.readLine())!=null){
+				
+				System.out.println(inputLine);
+				
+			}
+			in.close();
+			}catch(MalformedURLException e){
+				
+				System.out.println(e);
+				
+			}
+			
+			
+			switch(Loginname){
+			
+			case "hiro1contributer": 
+				driver.findElement(By.xpath("//div[@id='ctn_session_action']/div[@class='btn-group open']/ul[@class='dropdown-menu pull-right']/li//a[@href='/ls/slsusers.php?user=15']")).click();
+			
+			case"hiro2operator":
+				driver.findElement(By.xpath("//div[@id='ctn_session_action']/div[@class='btn-group open']/ul[@class='dropdown-menu pull-right']/li//a[@href='/ls/slsusers.php?user=17']")).click();
+			case"admin":
+				driver.findElement(By.xpath("//div[@id='ctn_session_action']/div[@class='btn-group open']/ul[@class='dropdown-menu pull-right']/li//a[@href='/ls/slsusers.php?user=5']")).click();
+				
+			}
+			//driver.findElement(By.xpath("//div[@id='ctn_session_action']/div[@class='btn-group open']/ul[@class='dropdown-menu pull-right']/li//a[@href='/ls/slsusers.php?user=5']")).click();
 				//+ "//a[@class = 'cmd_manage_account']")).click();
 				
 		
