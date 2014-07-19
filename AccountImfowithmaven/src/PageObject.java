@@ -43,9 +43,9 @@ class PageObject {
 	
 	public PageObject(){//constructor
 		driver = null;
-		this.driver = new FirefoxDriver();
-		Dimension d = new Dimension(1200,1200);
-		driver.manage().window().setSize(d);
+		//this.driver = new FirefoxDriver();
+		//Dimension d = new Dimension(1200,1200);
+		//driver.manage().window().setSize(d);
 	}
 	/*
 	public void setPageObject(WebDriver driver){
@@ -83,8 +83,9 @@ class PageObject {
 	public void Login(String name, String pass){
 		this.name=name;
 		
-		WebElement element5=driver.findElement(By.className("entryfield"));
+		//WebElement element5=driver.findElement(By.className("entryfield"));
 		
+		WebElement element5=driver.findElement(By.id("l1"));
 		
 		element5.sendKeys(name);//LiveServer2
 		//element5.sendKeys("admin");//LiveServer2
@@ -95,14 +96,18 @@ class PageObject {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		
-		WebElement element6=driver.findElement(By.xpath("//div[@class='flex']/input[@id='password']"));
+		WebElement element6=driver.findElement(By.id("passw1"));
+		//WebElement element6=driver.findElement(By.xpath("//div[@class='flex']/input[@id='password']"));
 		//element6.sendKeys("demo");
 		element6.sendKeys(pass);
 			
-				System.out.println("on the way: " + driver.findElement(By.id("password")));
+				//System.out.println("on the way: " + driver.findElement(By.id("password")));
 		
-		driver.findElement(By.xpath("//button[@id='btn_sb_login']")).click();
-		
+				//driver.findElement(By.xpath("//tbody/tr/td[@align='left']/input[@class='btn btn-primary']")).click();
+				driver.findElement(By.xpath("//div[@id='mainContent']/form[@class='well']/table/tbody/tr/td[@align='left']/input[@class='btn btn-primary']")).click();
+		//driver.findElement(By.xpath("//button[@id='btn_sb_login']")).click();
+		System.out.println("Click Sign In");
+				
 		
 	}
 	

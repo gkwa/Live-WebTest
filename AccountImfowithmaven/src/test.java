@@ -38,9 +38,15 @@ public class test extends PageObject {
 		
 		//System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
 		//WebDriver driver = new ChromeDriver();
+		
+		//****************************************//
+		/*
 		WebDriver driver = new FirefoxDriver();
 		Dimension d=new Dimension(1200,2000);
 		driver.manage().window().setSize(d);
+		*/
+		//***************************************//
+		
 		
 		System.out.println("/***TstCode***/");
 		
@@ -62,11 +68,17 @@ public class test extends PageObject {
 	
 	contri.contributerun();
 	
+	Operator operat = new Operator();
+	operat.operatorun();
 	
 		//driver.get("http://www.google.com");
 		//driver.get("http://livedev2.streambox.com/ls/slsmap.php");
 		//driver.get("http://live.streambox.com/ls/SLSLogin.php");
-		driver.get("http://d2.streambox.com/ls/SLSLogin.php");
+		
+	
+	//********************program for system admin*******************************************//
+/*
+	driver.get("http://d2.streambox.com/ls/SLSLogin.php");
 		
 		
 		login(driver);// enter into the login page of streambox 
@@ -80,13 +92,14 @@ public class test extends PageObject {
 		
 		To_ChangeConfirmAccount(driver);
 		
-		
+	*/
+	//***************************************************************//
 		
 		try{
 		
 		//do{
 			Thread.sleep(1000L);
-		WebElement element1=driver.findElement(By.xpath("//a[@class='ctn_pf_user_share file_page_share lsc_player_share']"));
+		//WebElement element1=driver.findElement(By.xpath("//a[@class='ctn_pf_user_share file_page_share lsc_player_share']"));
 		System.out.println(" Share action on the way");
 		Thread.sleep(7000L);;
 		//driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -94,20 +107,23 @@ public class test extends PageObject {
 		
 		
 		//driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
-		element1.click();
+		//element1.click();
 		
 		System.out.println("All through the Share action");
 		
 		
 		Thread.sleep(1000L);
 		
+		//*********************************************************//
+		/*
 		driver.findElement(By.id("cmd_share_email")).click();
 		System.out.println("click the email share");
 		
 		driver.findElement(By.className("sb_icon_facebook")).click();;
 		System.out.println("clicked facebook share");
 		
-		
+		*/
+		//***********************************************************//
 		
 		
 		}catch(Exception e){
@@ -522,3 +538,4 @@ public class test extends PageObject {
 	}
 	
 }
+
