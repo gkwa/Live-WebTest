@@ -35,13 +35,13 @@ import java.io.InputStreamReader;
 
 
 
-class PageObject {
+public class AccountPage {
 
 
 	protected WebDriver driver;
 	protected static String name;
 	
-	public PageObject(){//constructor
+	public AccountPage(){//constructor
 		driver = null;
 		//this.driver = new FirefoxDriver();
 		//Dimension d = new Dimension(1200,1200);
@@ -56,7 +56,7 @@ class PageObject {
 		
 	}*/
 	
-	public PageObject(WebDriver driver){
+	public AccountPage(WebDriver driver){
 		this.driver=driver;
 		Dimension d = new Dimension(1200,1200);
 		driver.manage().window().setSize(d);
@@ -66,8 +66,12 @@ class PageObject {
 	
 	
 	public void SetWebSite(String string){
-	
+	if(string!=null){
 		this.driver.get(string);
+	}else{
+		System.out.println("parameter in the SetWebSite() = null ");
+		return;
+	}
 		
 	}
 	
@@ -81,6 +85,11 @@ class PageObject {
 	
 	
 	public void Login(String name, String pass){
+		if((name==null)||(pass==null)){
+			System.out.println("Error: login name or password is null in the function Login()");
+			return;
+		}
+		
 		this.name=name;
 		
 		//WebElement element5=driver.findElement(By.className("entryfield"));

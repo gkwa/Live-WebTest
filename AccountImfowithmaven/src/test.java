@@ -26,7 +26,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 
 
-public class test extends PageObject {
+public class test extends AccountPage {
 
 	
 	
@@ -64,11 +64,11 @@ public class test extends PageObject {
 	//baseobj[1].SetWebSite("http://www.yahoo.com");
 		
 	
-	Contributer contri= new Contributer();
+	ContributerAccountLive contri= new ContributerAccountLive();
 	
 	contri.contributerun();
 	
-	Operator operat = new Operator();
+	OperatorAccountLive operat = new OperatorAccountLive();
 	operat.operatorun();
 	
 		//driver.get("http://www.google.com");
