@@ -71,6 +71,10 @@ public class test extends AccountPage {
 	OperatorAccountLive operat = new OperatorAccountLive();
 	operat.operatorun();
 	
+	GAdministratorAccountLive groupadmin = new GAdministratorAccountLive();
+	groupadmin.gadministratorrun();
+	
+	
 		//driver.get("http://www.google.com");
 		//driver.get("http://livedev2.streambox.com/ls/slsmap.php");
 		//driver.get("http://live.streambox.com/ls/SLSLogin.php");
