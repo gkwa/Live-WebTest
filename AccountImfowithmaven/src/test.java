@@ -5,6 +5,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
 import java.util.concurrent.TimeUnit;
 
 import static junit.framework.Assert.assertEquals;
@@ -63,7 +64,11 @@ public class test extends AccountPage {
 	*/
 	//baseobj[1].SetWebSite("http://www.yahoo.com");
 		
-	
+		SystemAdminLivedev3Account sysadmin = new SystemAdminLivedev3Account();
+		sysadmin.sysadminrun();
+		
+		
+	/*
 	ContributerAccountLive contri= new ContributerAccountLive();
 	
 	contri.contributerun();
@@ -73,7 +78,7 @@ public class test extends AccountPage {
 	
 	GAdministratorAccountLive groupadmin = new GAdministratorAccountLive();
 	groupadmin.gadministratorrun();
-	
+	*/
 	
 		//driver.get("http://www.google.com");
 		//driver.get("http://livedev2.streambox.com/ls/slsmap.php");
