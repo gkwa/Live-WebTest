@@ -99,6 +99,9 @@ public class SystemAdminLivedev3Account extends AccountPage{
 		elementsearch.clear();
 		elementsearch.sendKeys("hiro1");
 		
+		System.out.println("Delete the GroupAdministrator");
+		driver.findElement(By.xpath("//div[@id='container']/div[@id='mainContent']/div[@id='ctn_users']/div[@id='dt_users_wrapper']/table[@id='dt_users']/tbody[@role='alert']/tr[@class ='odd']/td[@class ='']/div[@class = 'btn-group']/a[@class = 'btn btn-small']/span[@class='icon-trash']")).click();
+		
 		
 		
 	}
