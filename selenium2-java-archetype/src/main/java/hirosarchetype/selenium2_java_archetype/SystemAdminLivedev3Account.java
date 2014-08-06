@@ -1,3 +1,4 @@
+package hirosarchetype.selenium2_java_archetype;
 
 
 import org.openqa.selenium.By;
@@ -9,12 +10,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class SystemAdminLivedev3Account extends AccountPage{
 	
 	//public PageObject obj =new PageObject();
-	public AccountPage obj;
+	public AccountPage obj1;
 	private WebDriver driver;
 	
 	public SystemAdminLivedev3Account(){
 		this.driver = new FirefoxDriver();
-		obj=new AccountPage(driver);
+		obj1=new AccountPage(driver);
+				
 		//this.obj=null;
 	}
 	
@@ -23,11 +25,14 @@ public class SystemAdminLivedev3Account extends AccountPage{
 		
 		try{
 		
-			obj.SetWebSite("http://livedev3.streambox.com/ls/login.php");
+			obj1.SetWebSite("http://livedev3.streambox.com/ls/login.php");
+			
 			//obj.SetWebSite("http://75.101.135.145"); //this is d2-server
 		//obj.SetWebSite("http://d2.streambox.com/ls/SLSLogin.php");
-		obj.Login("HiroSysAdmin","demo");
-		obj.run();
+		obj1.Login("HiroSysAdmin", "demo");
+		
+		obj1.run();
+		
 		
 		_Create_otherAccount();
 		
@@ -85,7 +90,8 @@ public class SystemAdminLivedev3Account extends AccountPage{
 		element3.sendKeys("hiro1");
 		//***************************End Set up Group*********************************//
 		
-		obj.To_ChangeConfirmAccount(driver);
+		obj1.To_ChangeConfirmAccount(driver);
+		
 		
 		
 		
@@ -107,7 +113,7 @@ public class SystemAdminLivedev3Account extends AccountPage{
 	}
 	
 	
-
+	
 	
 	
 
