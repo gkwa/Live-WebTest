@@ -1,33 +1,72 @@
 package webdriver_archetypetest.test;
 
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import static org.junit.Assert.*;
+
 public class SystemAdminAccount extends AccountPage {
 
 	public AccountPage obj;
 	private WebDriver driver;
+	
+	int ecount=0;
+	int elogin =0;
+	int erun=0;
 
+	
 	public SystemAdminAccount() {
 		this.driver = new FirefoxDriver();
 		obj = new AccountPage(driver);
 
 	}
+	
+	public void destructor(){
+		
+		this.driver.close();
+	}
 
 	static int count = 0;
 
+	//*********************Tomorrow's task***************************************//
+	
+	public void test() throws InterruptedException {
+		
+		//assertEquals(0, obj.sysadminrun());
+		System.out.println("Setwebsite(): "+ecount);
+		ecount = obj.SetWebSite("http://livedev3.streambox.com/ls/login.php");
+		assertEquals(0,ecount);
+		
+		//systemadmin.destructor();
+		
+	}
+	
+	public void test2() throws InterruptedException {
+		// assertEquals(55,math.sum(1,2,3,4,5,6,7,8,9,10));
+
+	
+		System.out.println("login():"+obj.Login("HiroSysAdmin", "demo"));
+		assertEquals(0,elogin);
+	
+		//systemadmin.destructor();
+	}
+	
+	
+	//*************************************************************//
+	
 	int sysadminrun() throws InterruptedException {
 
 		try {
 
-			obj.SetWebSite("http://livedev3.streambox.com/ls/login.php");
+			ecount = obj.SetWebSite("http://livedev3.streambox.com/ls/login.php");
 
-			obj.Login("HiroSysAdmin", "demo");
+			elogin =obj.Login("HiroSysAdmin", "demo");
 
 			obj.run();
-
+			
 			_Create_otherAccount();
 
 			Thread.sleep(300);
@@ -45,8 +84,10 @@ public class SystemAdminAccount extends AccountPage {
 
 	}
 
-	void _Create_otherAccount() throws InterruptedException {
+	
+	int _Create_otherAccount() throws InterruptedException {
 
+		try{
 		driver.findElement(
 				By.xpath("//div[@id='menu']/div[@class = 'navbar-inner']/div[@class = 'container-fluid']/div/div[@id = 'ctn_nav']/ul[@class = 'gradient level1 nav']/li[@class = 'dropdown']/a[@class = 'dropdown-toggle']"))
 				.click();
@@ -73,6 +114,14 @@ public class SystemAdminAccount extends AccountPage {
 
 		obj.To_ChangeConfirmAccount(driver);
 
+		return 0;
+		
+		}catch(Exception e){
+			
+			return 1;
+			
+		}
+		
 	}
 
 	private void _Show_the_Account() {

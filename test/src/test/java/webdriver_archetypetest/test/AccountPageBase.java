@@ -40,6 +40,7 @@ public class AccountPageBase {
 
 	protected WebDriver driver;
 	protected static String name;
+	
 
 	public AccountPageBase() {// constructor
 		driver = null;
@@ -53,12 +54,13 @@ public class AccountPageBase {
 
 	}
 
-	public void SetWebSite(String string) {
+	public int SetWebSite(String string) {
 		if (string != null) {
 			this.driver.get(string);
+			return 0;
 		} else {
 			System.out.println("parameter in the SetWebSite() = null ");
-			return;
+			return 1;
 		}
 
 	}
@@ -70,11 +72,11 @@ public class AccountPageBase {
 		return url;
 	}
 
-	public void Login(String name, String pass) {
+	public int Login(String name, String pass) {
 		if ((name == null) || (pass == null)) {
 			System.out
 					.println("Error: login name or password is null in the function Login()");
-			return;
+			return 1;
 		}
 
 		this.name = name;
@@ -113,14 +115,25 @@ public class AccountPageBase {
 		// driver.findElement(By.xpath("//button[@id='btn_sb_login']")).click();
 		System.out.println("Click Sign In");
 
+		return 0;
 	}
 
-	public void run() throws InterruptedException {
+	public int run() throws InterruptedException {
 
+		try{
 		To_Check_theAccount(driver, name);
 
 		To_ChangeConfirmAccount(driver);
-
+		
+		return 0;
+		
+		}catch(Exception e){
+		return 1;
+			
+		}
+		
+		
+		
 	}
 
 	// *****************************************************************************************************************//
