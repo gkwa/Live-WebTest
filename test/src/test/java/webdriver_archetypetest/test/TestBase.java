@@ -16,9 +16,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 
-
-
-
 public class TestBase {
 	private static final String SCREENSHOT_FOLDER = "target/screenshots/";
 	private static final String SCREENSHOT_FORMAT = ".png";
@@ -29,19 +26,18 @@ public class TestBase {
 
 	protected String baseUrl;
 
-	int num=5;
-	
-	public int sum(int ...args){
-		
-		int ret=0;
-		for(int i:args){
-			
-			ret+=i;
-			
+	int num = 5;
+
+	public int sum(int... args) {
+
+		int ret = 0;
+		for (int i : args) {
+
+			ret += i;
+
 		}
-		
+
 		return ret;
 	}
-	
-	
+
 }
