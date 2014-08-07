@@ -1,5 +1,6 @@
 package webdriver_archetypetest.test;
 
+
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
